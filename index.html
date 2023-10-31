@@ -5,7 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <img src="assets/Img/logo.png" alt="" width="80px" />
+        </div>
+        <div class="middle">
+          <a href="#">Home</a>
+          <a href="#">Product</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="right">
+          <a href="login/index.html">Login</a>
+        </div>
+      </div>
+      <div class="web-info">
+        <p>CryptoSphere is your premier destination for all things crypto. Dive into the world of digital currencies with confidence through our comprehensive guides, real-time market updates, and expert analysis. We're here to empower your journey in the exciting realm of blockchain, ensuring you stay informed, engaged, and ready to explore the future of finance. Join our community and discover the endless possibilities of the crypto universe today.</p>
+        <a class="btn" href="HomePage/index.html">Get Started</a>
+      </div>
+      <div class="coin-container">
+        <div class="coin-card">
+          <div class="coin-card-logo">
+            <img src="assets/Img/bitcoin.png" alt="" />
+          </div>
+          <div class="coin-card-info">
+            <h3>$<span id="btc"></span></h3>
+            <p>Bitcoin</p>
+          </div>
+        </div>
+        <div class="coin-card">
+          <div class="coin-card-logo">
+            <img src="assets/Img/ethereum.png" alt="" />
+          </div>
+          <div class="coin-card-info">
+            <h3>$<span id="eth"></span></h3>
+            <p>Ethereum</p>
+          </div>
+        </div>
+        <div class="coin-card">
+          <div class="coin-card-logo">
+            <img src="assets/Img/dogecoin.png" alt="" />
+          </div>
+          <div class="coin-card-info">
+            <h3>$<span id="doge"></span></h3>
+            <p>Doge</p>
+          </div>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
 </html>

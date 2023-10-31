@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="side-bar">
+        <div class="header">
+          <div class="logo">
+            <img src="../assets/Img/crown.png" alt="" width="80px" />
+          </div>
+          <div class="title"><h1>CryptoSphere</h1></div>
+        </div>
+        <div class="links">
+          <a href="#">Home</a>
+          <a href="#">CryptoCurriences</a>
+          <a href="#">Charts</a>
+          <a href="#">News</a>
+        </div>
+      </div>
+      <div class="content">
+        <div class="stats">
+          <div class="stats-heading">
+            <h1>Global Crypto Stats</h1>
+          </div>
+          <div class="stats-container">
+            <div class="row-1">
+              <div class="stats-info">
+                <h3>Total CryptoCurriences</h3>
+                <p><span id="total_cc"></span></p>
+              </div>
+              <div class="stats-info">
+                <h3>Total Exchanges</h3>
+                <p><span id="total_ex"></span></p>
+              </div>
+              <div class="stats-info">
+                <h3>Total Market Cap</h3>
+                <p>$<span id="total_mc"></span></p>
+              </div>
+            </div>
+            <div class="row2">
+              <div class="stats-info">
+                <h3>Total 24H Volume</h3>
+                <p><span id="total_24h"></span></p>
+              </div>
+              <div class="stats-info">
+                <h3>Total CryptoCurriences</h3>
+                <p><span id="total_ccx"></span></p>
+              </div>
+              <div class="stats-info">
+                <h3>Total Markets</h3>
+                <p><span id="total_mrkt"></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="crypto-container">
+          <div class="crypto-header">
+            <h1>Top 10 CryptoCurriences</h1>
+          </div>
+          <div class="crypto-cardholder" id="meow"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
