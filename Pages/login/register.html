@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container-x1">
+      <h2>Register</h2>
+      <form id="MainForm" class="w-25 m-4">
+        <div class="form-floating mb-3">
+          <input
+            type="email"
+            class="form-control"
+            id="emailInput"
+            placeholder="name@example.com"
+          />
+          <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="password"
+            class="form-control"
+            id="passwordInput"
+            placeholder="Password"
+          />
+          <label for="floatingPassword">Password</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="firstNameInput"
+            placeholder="First Name"
+          />
+          <label for="floatingPassword">First Name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="SecondNameInput"
+            placeholder="Second Name"
+          />
+          <label for="floatingPassword">Second Name</label>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          style="align-self: center"
+        >
+          Create New User
+        </button>
+      </form>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+      import {
+        getDatabase,
+        set,
+        ref,
+      } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyCuAQWF1Rs2R-thIRuEAixYTD9IOEZhnyU",
+        authDomain: "login-html-89a8c.firebaseapp.com",
+        projectId: "login-html-89a8c",
+        storageBucket: "login-html-89a8c.appspot.com",
+        messagingSenderId: "1052800044588",
+        appId: "1:1052800044588:web:8366a2814791a0c24ecb89",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase();
+      const auth = getAuth(app);
+
+      let email = document.getElementById("emailInput");
+      let password = document.getElementById("passwordInput");
+      let firstName = document.getElementById("firstNameInput");
+      let lastName = document.getElementById("SecondNameInput");
+      const Mainform = document.getElementById("MainForm");
+      Mainform.addEventListener("submit", function (evt) {
+        evt.preventDefault();
+
+        // Moved validation inside the event listener
+        const email = document.getElementById("emailInput");
+        const password = document.getElementById("passwordInput");
+        const firstName = document.getElementById("firstNameInput");
+        const lastName = document.getElementById("SecondNameInput");
+
+        function validate_email(email) {
+          const expression = /^[^@]+@\w+(\.\w+)+\w$/;
+          return expression.test(email);
+        }
+
+        if (!validate_email(email.value)) {
+          alert("Email is not valid");
+          return; // This will exit the event listener if the email is not valid
+        }
+
+        // If email is valid, proceed with user registration
+        createUserWithEmailAndPassword(auth, email.value, password.value)
+          .then((userCredential) => {
+            window.location.href = "../HomePage/index.html";
+            console.log(userCredential.user);
+            // ...
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ..
+          });
+      });
+    </script>
+  </body>
+</html>

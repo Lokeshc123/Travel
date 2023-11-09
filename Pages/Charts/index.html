@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="side-bar1">
+        <div class="header1">
+          <div class="logo1">
+            <img src="../../assets/Img/crown.png" alt="" width="80px" />
+          </div>
+          <div class="title1"><h1>CryptoSphere</h1></div>
+        </div>
+        <div class="links1">
+          <a href="../HomePage/index.html">Home</a>
+          <a href="../CryptoCurreinces/index.html">CryptoCurriences</a>
+          <a href="../Charts/index.html">Charts</a>
+          <a href="../News/index.html">News</a>
+        </div>
+      </div>
+      <div class="content">
+        <div class="header">
+          <input
+            type="text"
+            placeholder="Search"
+            class="input"
+            id="search-input"
+          />
+          <button class="btn" id="search-button">Search</button>
+        </div>
+        <canvas id="myChart"></canvas>
+        <div class="time-frame">
+          <button class="btn-time-frame" id="3h">3H</button>
+          <button class="btn-time-frame" id="24h">24H</button>
+          <button class="btn-time-frame" id="7d">1W</button>
+          <button class="btn-time-frame" id="30d">1M</button>
+          <button class="btn-time-frame" id="1y">1Y</button>
+          <button class="btn-time-frame" id="3y">3Y</button>
+          <button class="btn-time-frame" id="5y">5Y</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

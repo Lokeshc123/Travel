@@ -27,7 +27,7 @@ $.ajax(settings).done(function (response) {
 const settings1 = {
   async: true,
   crossDomain: true,
-  url: "https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc&limit=10&offset=0",
+  url: "https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc&limit=12&offset=0",
   method: "GET",
   headers: {
     "X-RapidAPI-Key": "25832351f3mshf3e34e1e5c8cb45p1d5372jsn2af00fd1bdab",
@@ -42,21 +42,34 @@ $.ajax(settings1).done(function (response) {
   const coinContainer = document.getElementById("meow");
 
   coins.forEach((coin) => {
-    // Creating a div element for each coin
-    const coinDiv = document.createElement("div");
-    coinDiv.classList.add("coin-item"); // You can define CSS for this class
+    // Creating a parent div element for each coin
+    const coinParentDiv = document.createElement("div");
+    coinParentDiv.classList.add("coin-item");
 
-    // Creating HTML content for the coin view
-    coinDiv.innerHTML = `
-    <img src="${coin.iconUrl}" />
-      <h2>${coin.name}</h2>
-      <p>Symbol: ${coin.symbol}</p>
+    // Creating a header div for the coin's image and symbol
+    const coinHeaderDiv = document.createElement("div");
+    coinHeaderDiv.classList.add("coin-header");
+    coinHeaderDiv.innerHTML = `
+    <h3>${coin.rank}.${coin.symbol}</h3>
+      <img src="${coin.iconUrl}" />
+    `;
+
+    // Creating a content div for all other information
+    const coinContentDiv = document.createElement("div");
+    coinContentDiv.classList.add("coin-content");
+    coinContentDiv.innerHTML = `
+      <p>Name: ${coin.name}</p>
       <p>Market Cap: ${coin.marketCap}</p>
       <p>Price: ${coin.price}</p>
       <!-- Add other relevant information here -->
     `;
 
-    // Appending the coin's div to the container
-    coinContainer.appendChild(coinDiv);
+    // Appending the header and content divs to the parent div
+    coinParentDiv.appendChild(coinHeaderDiv);
+    coinParentDiv.appendChild(coinContentDiv);
+
+    // Appending the coin's parent div to the container
+    coinContainer.appendChild(coinParentDiv);
   });
 });
+document.body.style.overflow = "hidden";
